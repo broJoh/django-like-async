@@ -1,13 +1,68 @@
-{% extends 'base.html' %}
-{% block content %}
-  {% for post in posts %}
-  <div>
-    <ul>
-      <li>
-        <a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
-      </li>
-    </ul>
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+  <title>Learn Air</title>
+</head>
+<body>
+  <div class="main_introduction">
+    <div class="main_introduction_title">
+      <h2>Learn Air</h2>
+      <span>온라인 퍼스널 레슨 플랫폼</span>
+    </div>
+    <div class="main_searchBar">
+      <input type="text" name="" id="" placeholder="어떤 수업을 원하시나요?">
+    </div>
+    <div class="main_event">
+      <div class="main_event_flex">
+        <div class="main_event_text">
+          Learn-Air가 쏜다! 회원가입 이벤트
+        </div>
+        <div class="main_event_login">
+          로그인 하기
+        </div>
+      </div>
+      <div class="main_event_picture">
+      </div>
+      
+    </div>
   </div>
-  {% endfor %}
-  <a href="{% url 'new' %}">글 쓰러가기</a>
-{% endblock content %}
+  <div class="main_categories">
+    <h2>온라인 레슨 카테고리</h2>
+    <div class="main_lessonCategory">
+      <div class="main_lessonCategory_svgContainer"><svg xmlns="http://www.w3.org/2000/svg" width="42.144" height="41.09" viewBox="0 0 42.144 41.09"><defs><style>.adobeXD_a{fill:#ff26be;}.adobeXD_b{fill:#2e001f;}.adobeXD_c{fill:#ffd9f2;}</style></defs><path class="adobeXD_a" d="M34.681,41.09H7.463A7.456,7.456,0,0,1,0,33.627V7.463A7.456,7.456,0,0,1,7.463,0H34.681a7.456,7.456,0,0,1,7.463,7.463V33.627A7.456,7.456,0,0,1,34.681,41.09Z"/><path class="adobeXD_b" d="M136.457,141.777H110.574A6.385,6.385,0,0,1,104.2,135.4V110.574a6.385,6.385,0,0,1,6.374-6.374H136.44a6.373,6.373,0,0,1,6.374,6.374v24.813a6.364,6.364,0,0,1-6.357,6.391Z" transform="translate(-102.443 -102.443)"/><path class="adobeXD_c" d="M475.486,602.034l4.917,9.447c.088.14.035.282-.106.282h-3.056a.344.344,0,0,1-.369-.228c-1.124-2.318-2.266-4.636-3.442-7.129h-.035c-1.054,2.353-2.213,4.83-3.336,7.148a.339.339,0,0,1-.317.194h-2.894c-.175,0-.194-.14-.1-.246l4.811-9.167-4.653-9.272a.142.142,0,0,1,.1-.246h3.021a.275.275,0,0,1,.315.194c1.106,2.318,2.23,4.707,3.284,7.041h.035c1.018-2.318,2.143-4.723,3.232-7.024.088-.14.14-.228.317-.228h2.827c.14,0,.194.106.106.246Zm5.779,2.862c0-4.091,2.722-7.287,7.041-7.287a7.728,7.728,0,0,1,.914.035v-4.653a.175.175,0,0,1,.175-.175h2.775c.14,0,.175.052.175.14v16.121a12.537,12.537,0,0,0,.088,1.721c0,.106-.036.14-.14.194a10.457,10.457,0,0,1-4.5,1.018c-3.811.015-6.534-2.336-6.532-7.114Zm7.953-4.494a2.641,2.641,0,0,0-1.018-.175c-2.213,0-3.757,1.7-3.757,4.531,0,3.232,1.581,4.531,3.565,4.531a3.291,3.291,0,0,0,1.212-.194V600.4Z" transform="translate(-458.822 -582.807)"/></svg></div>
+      <div class="flex_column justify_content_center">
+        <p class="main_lessonCategory_ItemName">쉽게 배우는 UI 디자인</p>
+        <p class="main_lessonCategory_ItemName">Adobe XD</p>
+        <span class="main_lessonCategory_tutorName">명예튜터 홍길동 ></span>
+      </div>
+        <div class="playButton"></div>
+    </div>
+    <div class="main_lessonCategory">
+      <div class="main_lessonCategory_svgContainer"><svg xmlns="http://www.w3.org/2000/svg" width="42.9" height="40.055" viewBox="0 0 42.9 40.055"><defs><style>.sketch_a{fill:#ffd54f;}.sketch_b{fill:#ffecb3;}.sketch_c{fill:#ffa000;}.sketch_d{fill:#ffca28;}.sketch_e{fill:#ffc107;}</style></defs><path class="sketch_a" d="M96,31.559V19.494l13.406-2.518,13.406,2.518V31.559Z" transform="translate(-87.956 -16.976)"/><path class="sketch_b" d="M96,31.559l13.406-14.583,13.406,14.583Z" transform="translate(-87.956 -16.976)"/><path class="sketch_c" d="M0,191.024,21.45,216.5,42.9,191.024Z" transform="translate(0 -176.441)"/><path class="sketch_d" d="M96,191.024,109.406,216.5l13.406-25.472Z" transform="translate(-87.956 -176.441)"/><g transform="translate(0 2.518)"><path class="sketch_e" d="M0,59.09,8.044,47.024V59.09Z" transform="translate(0 -47.024)"/><path class="sketch_e" d="M416,47.024V59.09h8.044Z" transform="translate(-381.144 -47.024)"/></g></svg></div>
+      <div class="flex_column justify_content_center">
+        <p class="main_lessonCategory_ItemName">쉽게 배우는 UI 디자인</p>
+        <p class="main_lessonCategory_ItemName">Adobe XD</p>
+        <span class="main_lessonCategory_tutorName">명예튜터 홍길동 ></span>
+      </div>
+        <div class="playButton"></div>
+    </div>
+    <div class="main_lessonCategory">
+      <div class="main_lessonCategory_svgContainer"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.08" height="42.978" viewBox="0 0 44.08 42.978"><defs><style>.a{fill:url(#a);}.b{fill:#d8a1ff;}</style><radialGradient id="a" cx="0.329" cy="0.224" r="0.781" gradientTransform="translate(-0.01 0.01) scale(0.973 0.968)" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#442f55" stop-opacity="0.98"/><stop offset="1" stop-color="#12002c"/></radialGradient></defs><path class="a" d="M24.8,155.549H65.21v39.3H24.8Z" transform="translate(-22.966 -153.712)"/><path class="b" d="M1.837,132.583H42.244v39.3H1.837ZM0,173.724H44.08V130.746H0Zm31.187-22.261a8.129,8.129,0,0,0,1.359-.037c0-.129.037-.22.037-.312,0-.992-.478-2.828-2.388-2.828-1.763,0-2.516,1.543-2.7,3.177h3.692Zm-3.728,2.516c.037,2.48,1.212,4.151,4,4.151a7.188,7.188,0,0,0,2.994-.569c.129-.055.22-.037.22.129v2.3a.389.389,0,0,1-.184.367,8.328,8.328,0,0,1-3.692.7c-4.849,0-6.667-3.581-6.667-7.567,0-4.335,2.241-7.879,6.19-7.879,4,0,5.4,3.361,5.4,6.1a9.289,9.289,0,0,1-.147,1.947.273.273,0,0,1-.239.239,26.586,26.586,0,0,1-3.067.128H27.458Zm-9.845-1.873c-.514-2.039-1.763-6.483-2.222-8.632h-.037c-.386,2.149-1.4,5.785-2.149,8.632Zm-5.161,2.975L11,160.574c-.037.147-.092.2-.276.2h-2.7c-.184,0-.22-.055-.184-.275l5.216-18.238a5.629,5.629,0,0,0,.184-1.506c0-.129.055-.184.147-.184h3.857c.129,0,.184.037.22.184l5.841,19.781c.037.147,0,.239-.147.239H20.13a.249.249,0,0,1-.276-.184l-1.506-5.51h-5.9Z" transform="translate(0 -130.746)"/></svg></div>
+      <div class="flex_column justify_content_center">
+        <p class="main_lessonCategory_ItemName">쉽게 배우는 UI 디자인</p>
+        <p class="main_lessonCategory_ItemName">Adobe XD</p>
+        <span class="main_lessonCategory_tutorName">명예튜터 홍길동 ></span>
+      </div>
+        <div class="playButton"></div>
+    </div>
+  </div>
+  
+</body>
+</html>
